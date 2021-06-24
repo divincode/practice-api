@@ -34,7 +34,7 @@ EXPOSE 8080:8080
 COPY ./deployment/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # https://github.com/moby/moby/issues/31243#issuecomment-406879017
-RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
+RUN ln -sf /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     chgrp -R 0 /usr/local/bin/docker-entrypoint.sh && \
     chown -R nginx:root /usr/local/bin/docker-entrypoint.sh
